@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: snowflake_sample_data_source    # nombre interno que usarás en dbt
+    database: SNOWFLAKE_SAMPLE_DATA       # base de datos en Snowflake
+    schema: TPCH_SF1                      # schema dentro de la DB
+    tables:
+      - name: CUSTOMER
+        description: "Tabla de clientes de ejemplo"
+        columns:
+          - name: C_CUSTKEY
+            description: "Primary key de cliente"
+          - name: C_NAME
+            description: "Nombre del cliente"
+          - name: C_ADDRESS
+            description: "Dirección"
+          - name: C_NATIONKEY
+            description: "Referencia a la tabla NATION"
+          - name: C_ACCTBAL
+            description: "Balance de cuenta"
+      - name: ORDERS
+        description: "Tabla de órdenes"
+        columns:
+          - name: O_ORDERKEY
+            description: "Primary key de orden"
+          - name: O_CUSTKEY
+            description: "Cliente que hizo la orden"
+          - name: O_ORDERSTATUS
+            description: "Estado de la orden"
+          - name: O_TOTALPRICE
+            description: "Precio total de la orden"
+          - name: O_ORDERDATE
+            description: "Fecha de la orden"
